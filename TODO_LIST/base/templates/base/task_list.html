@@ -24,8 +24,7 @@
         {% endif %}
       </div>
       {% empty %}
-      <h3>You have no task in the list.</h3>
-      <h5>You don't have any task. add your first task!</h5>
+      <p>You have no pending tasks! <a class="option-link" href="{% url 'task_create' %}">add your first task!</a></p>
     {% endfor %}
   </div>
 {% endblock main %}

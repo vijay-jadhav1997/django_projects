@@ -1,16 +1,5 @@
 {% extends "base/base.html" %}
 
-{% comment %} {% block main %}
-    <h2>Login</h2>
-  <form action="" method="POST" novalidate>
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Login</button>
-  </form>
-  <hr>
-  <h3>Don't have an account? <a href="{% url 'register' %}">Register</a></h3>
-{% endblock main %} {% endcomment %}
-
 
 {% block main %}
   {% if messages %}
@@ -19,12 +8,15 @@
     {% endfor %}
   {% endif %}
   <div class="form-container">
-    <h2>Login Page</h2>
-    {% include 'base/form.html' with p='Login' %}
+    <h2>Login in to your account</h2>
+    <form action="" method="POST" novalidate>
+      {% include 'base/form.html' with p='Login' %}
+      <input class="form-submit-btn login-btn" type="submit" value="Login">
+      <hr>
+      <p>Forgot your password! <a class='option-link' href="{% url 'pswd_reset' %}">Reset Password</a></p>
+      <p>Don't have an account? <a class='option-link' href="{% url 'signup' %}">Join Now</a></p>
+    </form>
 
-    <div class="option-btn-container">
-      <p>OR</p>
-      <a class='login-option-link' href="{% url 'signup' %}">Signup</a>
-    </div>
+    
   </div>
 {% endblock main %}

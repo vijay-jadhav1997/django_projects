@@ -8,12 +8,12 @@
     {% endfor %}
   {% endif %}
   <div class="form-container">
-    <h2>Create Task</h2>
+    <h2>Reset Password</h2>
     <form action="" method="POST" novalidate>
       {% include 'base/form.html' %}
       <div class="form-btns-wrapper">
-        <input class="form-submit-btn save_btn" type="submit" value="Save">
-        <a href="{% url 'tasks' %}">Cancel</a>
+        <input class="form-submit-btn save_btn" type="submit" value="Send">
+        <a href="{% url 'login' %}">Cancel</a>
       </div>
     </form>
 

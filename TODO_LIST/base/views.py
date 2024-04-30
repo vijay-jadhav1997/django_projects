@@ -5,11 +5,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
 
 from .models import Task, User
+from .forms import UserSignupForm
 
 # Create your views here.
 def home(request):
@@ -17,8 +17,8 @@ def home(request):
   return render(request, 'base/home.html', context=context)
 
 class UserRegisterView(FormView):
-  template_name = 'base/register.html'
-  form_class = UserCreationForm
+  template_name = 'base/signup.html'
+  form_class = UserSignupForm
   redirect_authenticated_user = True
 
   success_url = reverse_lazy('tasks')
