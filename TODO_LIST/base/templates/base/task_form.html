@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+
+{% comment %} {% block main %}
+
+  <h1>!! ...Jay Jay Ram Krushna Hari... !!</h1>
+  <h2>Task Form</h2>
+  <form action="" method="POST" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Add Todo</button>
+  </form>
+  
+{% endblock main %} {% endcomment %}
+
+
+{% block main %}
+  <div class="form-container">
+    {% include 'base/form.html' with p='Save' %}
+    <div class="option-btn-container">
+      <p>OR</p>
+      <a class='login-option-link back-btn' href="{% url 'tasks' %}">Cancel</a>
+      {% comment %} <a href="{% url 'dashboard' %}" class="back-btn">Back</a> {% endcomment %}
+    </div>
+  </div>
+{% endblock main %}

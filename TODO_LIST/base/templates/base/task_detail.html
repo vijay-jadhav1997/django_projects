@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+{% block main %}
+  <h1>!! ...Shree Dnyanoba Mauli Tukaram... !!</h1>
+  {% if task %}
+    <h2>Task Title : {{task.title}}</h2>
+    <h3>{{task.description}}</h3>
+    <h3>This Todo created at {{task.created}}</h3>
+  {% endif %}
+  <a href="{% url 'tasks' %}">Back</a>
+{% endblock main %}

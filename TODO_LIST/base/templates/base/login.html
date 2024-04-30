@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+
+{% comment %} {% block main %}
+    <h2>Login</h2>
+  <form action="" method="POST" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Login</button>
+  </form>
+  <hr>
+  <h3>Don't have an account? <a href="{% url 'register' %}">Register</a></h3>
+{% endblock main %} {% endcomment %}
+
+
+{% block main %}
+  {% if messages %}
+    {% for message  in messages %}
+      <p {% if message.tags %}class="{{message.tags}}"{% endif %}>{{message}}</p>
+    {% endfor %}
+  {% endif %}
+  <div class="form-container">
+    <h2>Login Page</h2>
+    {% include 'base/form.html' with p='Login' %}
+
+    <div class="option-btn-container">
+      <p>OR</p>
+      <a class='login-option-link' href="{% url 'signup' %}">Signup</a>
+    </div>
+  </div>
+{% endblock main %}

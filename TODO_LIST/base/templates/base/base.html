@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block style %}
+    <link rel="stylesheet" href="{% static 'base/css/index.css' %}">
+  {% endblock style %}
+  <title>{% block title %}Todo App{% endblock title %}</title>
+</head>
+<body>
+  {% include "base/header.html" %}
+  <div class="main">
+    {% block main %}{% endblock main %}
+  </div>
+</body>
+</html>

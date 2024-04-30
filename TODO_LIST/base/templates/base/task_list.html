@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block main %}
+  {% comment %} <form method="GET">
+    <input type="search" name="search-area" value="{{search_input}}">
+    <input type="submit" value="Search">
+  </form>
+    {% endcomment %}
+  <h1>You have <em>{{count.count}}</em> incomplete task{{count|pluralize:"s"}}.</h1>
+
+  <div class="task-items-container">
+    {% for task in tasks %}
+      <div class="task-wrapper">
+        {% if task.complete %}
+          <div class="task-title">
+            <div class="task-complte-icon"></div>
+            <i><s><a href="{% url 'task_update' task.id %}">{{task.title}}</a></s></i>
+          </div>
+        {% else %}
+          <div class="task-title">
+            <div class="task-incomplte-icon"></div>
+            <a href="{% url 'task_update' task.id %}">{{task.title}}</a>
+          </div>
+        {% endif %}
+      </div>
+      {% empty %}
+      <h3>You have no task in the list.</h3>
+      <h5>You don't have any task. add your first task!</h5>
+    {% endfor %}
+  </div>
+{% endblock main %}
