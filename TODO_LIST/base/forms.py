@@ -4,7 +4,7 @@ from django import forms
 
 
 class UserSignupForm(UserCreationForm):
-  email = forms.EmailField(max_length=200, required=True, )
+  email = forms.EmailField(max_length=200, required=True, widget=forms.EmailInput(attrs={'placeholder':'example2024@gmail.com'}) )
 
   class Meta:
     model = User
@@ -15,7 +15,7 @@ class UserSignupForm(UserCreationForm):
     }
     widgets = {
       'username' : forms.TextInput(attrs={'placeholder':'dharm_raj'}),
-      'email' : forms.EmailInput(attrs={'placeholder':'example2024@gmail.com'}),
-      'password' : forms.PasswordInput(attrs={'placeholder':'Indian@₹25'}),
+      'password1' : forms.PasswordInput(attrs={'placeholder':'Indian@₹25'}),
     }
+
 

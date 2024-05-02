@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic import TemplateView
+
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView
@@ -84,3 +86,15 @@ class TaskDelete(LoginRequiredMixin, DeleteView):
   
   
 
+class Index(TemplateView):
+  template_name = 'base/home.html'
+
+  def get_context_data(self, **kwargs):
+    greet = "🙏🏻 !! ...Jay Jay Shree Radhe Krushna... !! 🙏🏻"
+    name = "Shree Raghav Suryavanshi"
+    city = 'Ayodhya'
+    spouse = 'Shree Janaki ji'
+
+    context = {'name':name, 'greet':greet, 'city':city, 'spouse':spouse}
+
+    return context

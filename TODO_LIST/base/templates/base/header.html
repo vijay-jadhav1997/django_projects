@@ -1,6 +1,7 @@
+{% load static %}
 <header class="todo-header">
   <div class="left-section">
-    <div id="todo-logo">Todo</div>
+    <img src="{% static "base/images/todo-logo1.png" %}" id="todo-logo">
     <nav>
       <a href="">🏠 Home</a>
       {% if request.user.is_authenticated %}
@@ -12,6 +13,13 @@
   
   <div class="right-section">
     {% if request.user.is_authenticated %}
+      <span class="theme-icon">
+        {% if theme %}
+          🌙
+        {% else %}
+          🔆
+        {% endif %}
+      </span>
       <span class="username">Namaste🙏🏻 {{request.user}} </span>
       <form action="{% url 'logout' %}" method="POST">
         {% csrf_token %}

@@ -2,13 +2,12 @@
 {% load static %}
 {% block main %}
   <div class="home-page">
-    <div class="">
+    <div class="welcome-title">
       <h1>Todo 📑</h1>
-      <p>Organize your tasks and ideas quikly.💡</p>
-      <p>Todo helps you more focus🎯, either work or play.🤾🏻‍♂️</p>
-      <a class="signup-link-btn" href="{% url 'signup' %}">Get Started</a>
+      <p>- Organize your tasks and ideas quikly.💡</p>
+      <p>- Todo helps you to focus🎯 on your works, ideas and games. 🤾🏻‍♂️</p>
+      <a class="get-started-link" href="{% url 'signup' %}">Get Started</a>
     </div>
-    <img src="{% static 'base/images/todo_manage.jpg' %}" alt="Todo-list Image">
+    <img class="todo-image" src="{% static 'base/images/todo-manage.png' %}" alt="Todo-list Image">
   </div>
-  
 {% endblock main %}
