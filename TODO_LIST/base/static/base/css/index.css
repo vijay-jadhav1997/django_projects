@@ -24,6 +24,9 @@ a {
   text-decoration: none;
   color: #fff;
 }
+p {
+  font-size: 1.35rem;
+}
 
 .main {
   margin: 2.5rem auto 1rem;
@@ -109,20 +112,10 @@ a {
 /** Styling home page */
 .home-page {
   position: relative;
-  /* display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between; */
-  /* overflow: hidden; */
   width: 100%;
-  /* padding: 1rem; */
-  /* margin: 0 auto; */
-  /* margin: 1rem auto; */
-  /* background-color: #daf3e8db; */
 }
 .welcome-title{
   width: 25rem;
-  /* background-color: #fe67fe52; */
   padding: 2rem 0;
   font-size: 1.4rem;
 }
@@ -147,7 +140,6 @@ a {
   width: 20rem;
   top: 5rem;
   right: 0;
-  /* background-color: rgba(255, 192, 203, 0.436); */
   object-fit: cover;
   position: absolute;
   z-index: -1;
@@ -160,7 +152,8 @@ a {
   align-items: center;
   row-gap: 1rem;
   width: 100%;
-  max-width: 40rem;
+  /* max-width: 40rem; */
+  background-color: #46f74654;
   padding: 2rem 2rem;
 }
 
@@ -226,7 +219,7 @@ a {
 /** Styling form container, form */
 .form-container{
   margin: 20px auto;
-  min-width:310px;
+  /* min-width:310px; */
   width: 100%;
   max-width:750px;
   padding: 30px 20px;
@@ -385,7 +378,7 @@ input[type='checkbox'] {
   text-decoration: none;
   font-size: 1.2rem;
   margin-left: 0.5rem;
-  color: #ff00cc;
+  color: #fe27d3;
 }
 .option-link:hover {
   text-decoration: underline;
@@ -422,6 +415,11 @@ form p {
   margin-bottom: 2rem;
 }
 
+/** style Password reset complete */
+p.pswd-reset-success-msg {
+  font-size: 1.4rem;
+}
+
 
 @media screen and (max-width:426px) {
   .todo-header {
@@ -437,8 +435,8 @@ form p {
   }
   
   .home-page .todo-image {
-    height: 20rem;
-    width: 20rem;
+    /* height: 20rem;
+    width: 20rem; */
     top: 13rem;
   }  
 
@@ -465,8 +463,21 @@ form p {
   }
 
 
+  p.pswd-reset-success-msg {
+    font-size: 1.1rem;
+  }
+
+  .task_list-container {
+    padding: 2rem 0.5rem;
+
+  }
   .task_list-container .task-wrapper{
     font-size: 1.1rem;
+    max-width: 85vw;
+  }
+  .task-title a {
+    /* overflow: hidden; */
+    text-overflow: hidden;
   }
   
 }

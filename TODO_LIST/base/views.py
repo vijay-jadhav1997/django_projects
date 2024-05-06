@@ -13,6 +13,7 @@ from django.contrib.auth import login
 from .models import Task, User
 from .forms import UserSignupForm
 
+
 # Create your views here.
 def home(request):
   context = {}
