@@ -3,11 +3,13 @@
 {% block main %}
   <div class="home-page">
     <div class="welcome-title">
+      <span class="welcome-heading"></span>
       <h1>Todo 📑</h1>
-      <p>- Organize your tasks and ideas quikly.💡</p>
+      <p class="welcome-details1">- Organize your tasks and ideas quikly.💡</p>
       <p>- Todo helps you to focus🎯 on your works, ideas and games. 🤾🏻‍♂️</p>
       <a class="get-started-link" href="{% url 'signup' %}">Get Started</a>
     </div>
     <img class="todo-image" src="{% static 'base/images/todo-manage.png' %}" alt="Todo-list Image">
   </div>
+
 {% endblock main %}
