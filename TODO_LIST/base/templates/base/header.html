@@ -24,16 +24,16 @@
     <img class="profile-img" src="{% static 'base/images/todo_manage.jpg' %}" alt="profile image">
     <nav class="profile-action-bar">
       {% if request.user.is_authenticated %}
-        <span class="username">Namaste🙏🏻 {{request.user}} </span>
+        <span class="username"> {{request.user.first_name}} </span>
         <a href="{% url 'tasks' %}">🧾 My Tasks</a>
         <a href="{% url 'task_create' %}"><span class="new-task-logo">+</span>New Task</a>
         <form action="{% url 'logout' %}" method="POST">
           {% csrf_token %}
-          <input class="logout-btn login-link-btn" type="submit" value="Logout">
+          <input class="login-link" type="submit" value="Logout">
         </form>
         {% else %}
-        <a class="login-link-btn" href="{% url 'login' %}">Login</a>
-        <a class="signup-link-btn" href="{% url 'signup' %}">Signup</a>
+        <a class="login-link" href="{% url 'login' %}">Login</a>
+        <a class="signup-link" href="{% url 'signup' %}">Signup</a>
       {% endif %}
     </nav>
   </div>
