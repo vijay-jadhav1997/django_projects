@@ -9,7 +9,9 @@
       <p>- Todo helps you to focus🎯 on your works, ideas and games. 🤾🏻‍♂️</p>
       <a class="get-started-link" href="{% url 'signup' %}">Get Started</a>
     </div>
-    <img class="todo-image" src="{% static 'base/images/todo-manage.png' %}" alt="Todo-list Image">
+    <div class="todo-image-container">
+      <img class="todo-image" src="{% static 'base/images/todo-manage.png' %}" alt="Todo-list Image">
+    </div>
   </div>
 
 {% endblock main %}

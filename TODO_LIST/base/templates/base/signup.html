@@ -1,14 +1,18 @@
 {% extends "base/base.html" %}
+{% load static %}
 
 {% block main %}
- <div class="form-container">
-    <h2>Create your account</h2>
-    <form action="" method="POST" novalidate>
-      {% include 'base/form.html' with p='Signup' %}
-      <input class="form-submit-btn signup-btn" type="submit" value="Signup">
-      <hr>
-      <p>Already have an account? <a class='option-link' href="{% url 'login' %}">Login Here</a></p>
-    </form>
+  <div class="main">
+    {% comment %} <img src="{% static 'base/images/TaskManagement-hero.png' %}" alt="background image"> {% endcomment %}
+    <div class="form-container">
+      <h2>Create your account</h2>
+      <form action="" method="POST" novalidate>
+        {% include 'base/form.html' with p='Signup' %}
+        <input class="form-submit-btn signup-btn" type="submit" value="Signup">
+        <hr>
+        <p>Already have an account? <a class='option-link' href="{% url 'login' %}">Login Here</a></p>
+      </form>
+    </div>
 
   </div>
 {% endblock main %}

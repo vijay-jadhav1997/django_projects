@@ -14,6 +14,7 @@ body {
   margin: 0 auto;
   background-color: #11112b;
   color: #f0fbfd;
+  position: relative;
 }
 
 body.light-mode {
@@ -29,16 +30,6 @@ p {
   font-size: 1.35rem;
 }
 
-.main {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-}
-
 
 
 
@@ -50,7 +41,7 @@ p {
   width: 100%;
   max-width: 60rem;
   height: 100%;
-  /* background-color: #60016052; */
+  background-color: inherit;
 }
 .welcome-title{
   max-width: 25rem;
@@ -80,21 +71,100 @@ p {
   margin: 2rem 1rem;
   padding: 0.5rem 1.1rem;
   border-radius: 0.25rem;
+  /* border: 2px solid yellow; */
   font-size: 1.5rem;
   color: #fff;
   background-color: #ff00cc;
-
+}
+.welcome-title a.get-started-link:hover {
+  animation: border-animation 6s infinite linear;
+}
+@keyframes border-animation {
+  0% {
+    background-color: #ff00dd;
+  }
+  25% {
+    background-color: #ff0000;
+  }
+  50% {
+    background-color: #002aff;
+  }
+  75% {
+    background-color: #decf03;
+  }
+  100% {
+    background-color: #00b5b5;
+  }
 }
 
-.todo-image {
+.todo-image-container {
   height: 20rem;
   width: 20rem;
+  /* border: 1px solid gold; */
   top: 5rem;
   right: 0;
-  object-fit: cover;
   position: absolute;
-  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: inherit;
 }
+.todo-image {
+  height: 110%;
+  width: 100%;
+  /* top: 5rem;
+  right: 0;
+  position: absolute; */
+  object-fit: cover;
+  z-index: 5;
+}
+.todo-image-container::before {
+  content: '';
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  background: linear-gradient(#00ccff, #800080);
+  width: 50%;
+  height: 140%;
+  animation: rotate 5s infinite linear;
+  z-index: 3;
+}
+
+
+
+.todo-image-container::after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  inset: 3px;
+  border-radius: 0.7rem;
+  z-index: 4;
+}
+
+
+@keyframes rotate {
+  0% {
+    background: linear-gradient(#00ccff, #d500f9);
+    transform: rotate(0deg);
+  }
+  35% {
+    background: linear-gradient(#34ca06, #510074);
+    transform: rotate(120deg);
+  }
+  70% {
+    background: linear-gradient(#d81c90, #8ea401);
+    transform: rotate(240deg);
+  }
+  100% {
+    background: linear-gradient(#ba5d00, #6495ed);
+    transform: rotate(360deg);
+  }
+}
+
+
 
 /** Styling task_list  */
 .task_list-container {
@@ -168,14 +238,33 @@ p {
 
 
 /** Styling form container, form */
+
+.main {
+  /* width: 100%; */
+  min-height: 100vh;
+  display: flex;    
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 5rem 0 0;
+  justify-content: center;
+  align-items: center;
+  background: url("../images/A14a.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
 .form-container{
   margin: 50px auto;
-  width: 100%;
+  width: 95%;
   max-width:650px;
   padding: 30px 20px;
   background-color: #fac7ec4d;
   box-shadow: 0 0 5px #9b9b9b;
   border-radius: 10px;
+  backdrop-filter: blur(1.5rem);
 }
 .form-container h2{
   margin: 5px auto 15px;
@@ -374,20 +463,27 @@ p.pswd-reset-success-msg {
 
 
 @media screen and (max-width:766px) {
-  .home-page .todo-image {
+  .home-page .todo-image-container {
     top: 14rem;
   } 
   
 }
+@media screen and (max-width:590px) {
+  .home-page .todo-image-container {
+    top: 15rem;
+  }
+}
+
+
 @media screen and (max-width:426px) {
   .home-page {
     margin: 2rem auto 0;
     padding: 0 1rem;
   }
-  .home-page .todo-image {
+  .home-page .todo-image-container {
+    top: 15rem;
     /* height: 20rem;
     width: 20rem; */
-    top: 15rem;
     /* margin-top: 5rem; */
   } 
   

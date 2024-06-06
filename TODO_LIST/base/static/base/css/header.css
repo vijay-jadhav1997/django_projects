@@ -2,6 +2,7 @@
 .todo-header {
   position: relative;
   background-color: #04053790;
+  color: inherit;
   box-shadow: 0 1px 1px #dddddda5;
   position: sticky;
   top: 0.4rem;
