@@ -80,10 +80,10 @@ text : "Welcome to Task Manager...."
 gsap.from(".todo-image", {
   x: 50,
   // y: 200,
-  // duration: 2,
-  delay: 1,
+  duration: 2,
+  // delay: 2,
   ease: "power1.out",
-  opacity: 0,
+  // opacity: 0,
 })
 gsap.from(".welcome-title", {
   x: -50,

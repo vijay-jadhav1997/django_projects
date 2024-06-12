@@ -18,7 +18,7 @@ body {
 }
 
 body.light-mode {
-  background-color: #d9e8eb;
+  background-color: #c4d3e7;
   color: #02022e;
 }
 
@@ -71,14 +71,15 @@ p {
   margin: 2rem 1rem;
   padding: 0.5rem 1.1rem;
   border-radius: 0.25rem;
-  /* border: 2px solid yellow; */
   font-size: 1.5rem;
   color: #fff;
   background-color: #ff00cc;
+  animation: border-animation 10s infinite linear;
 }
-.welcome-title a.get-started-link:hover {
+/* .welcome-title a.get-started-link:hover {
   animation: border-animation 6s infinite linear;
-}
+} */
+
 @keyframes border-animation {
   0% {
     background-color: #ff00dd;
@@ -100,7 +101,6 @@ p {
 .todo-image-container {
   height: 20rem;
   width: 20rem;
-  /* border: 1px solid gold; */
   top: 5rem;
   right: 0;
   position: absolute;
@@ -114,22 +114,16 @@ p {
 .todo-image {
   height: 110%;
   width: 100%;
-  /* top: 5rem;
-  right: 0;
-  position: absolute; */
   object-fit: cover;
   z-index: 5;
 }
 .todo-image-container::before {
   content: '';
   position: absolute;
-  /* top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%); */
   background: linear-gradient(#00ccff, #800080);
   width: 50%;
   height: 140%;
-  animation: rotate 5s infinite linear;
+  animation: rotate 10s infinite linear;
   z-index: 3;
 }
 
@@ -250,28 +244,51 @@ p {
   padding: 5rem 0 0;
   justify-content: center;
   align-items: center;
-  background: url("../images/A14a.jpg") no-repeat;
+  background: url("../images/loginPageBG.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 
+.main .form-container {
+  background-color: transparent;
+  box-shadow: 0 0 50px #18bbca;
+}
+.main .form-container:hover {
+  animation: shadow-color 2s infinite linear alternate;
+}
+@keyframes shadow-color {
+  0% {
+    box-shadow: 0 0 50px 10px #baba1d;
+  }
+  33% {
+    box-shadow: 0 0 50px 10px #d14086;
+    }
+    66% {
+    box-shadow: 0 0 50px 10px #4cca22;
+  }
+  100% {
+    box-shadow: 0 0 50px 10px #e38d03;
+  }
+}
 
-.form-container{
+.form-container {
   margin: 50px auto;
   width: 95%;
-  max-width:650px;
+  max-width:500px;
   padding: 30px 20px;
-  background-color: #fac7ec4d;
+  background-color: transparent;
   box-shadow: 0 0 5px #9b9b9b;
   border-radius: 10px;
-  backdrop-filter: blur(1.5rem);
+  backdrop-filter: blur(0.5rem);
 }
+
+
 .form-container h2{
   margin: 5px auto 15px;
   padding: 15px 10px;
   width: 100%;
   border-radius: 5px;
-  background: linear-gradient(45deg, #600160, #007d98, #84025f);
+  background: radial-gradient(#600160, #007d98, #49cd9a, #84025f);
   color: #f6f6f6;
   text-align: center;
   font-weight: 600;
@@ -283,7 +300,6 @@ p {
   border-radius: 5px;
   width: 95%;
   background: linear-gradient(45deg, #fac7ec4d);
-  /* background-color: #fac7ec4d; */
   font-weight: 600;
   text-align: left;
 }
@@ -307,11 +323,27 @@ p.non_field_error {
 }
 
 .input-field-wrapper {
+  position: relative;
   width: 100%;
   font-size: 1.25rem;
 }
-/* .input-field-wrapper label {
-} */
+
+.main .input-field-wrapper label {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+
+.main .input-field-wrapper input:focus .main .input-field-wrapper label,
+.main .input-field-wrapper input:valid .main .input-field-wrapper label {
+  top: -1.7rem;
+}
+
 .input-field-wrapper span {
   color: #fa1e1e;
   margin-left: 10px;
@@ -373,7 +405,7 @@ input[type='checkbox'] {
   border-radius: 0.4rem;
   font-size: 1.3rem;
   text-align: center;
-  color: #ebebeb;
+  color: inherit;
   border: 1px solid #ff24bd;
   box-shadow: 0 0 3px #d6d6d6;
   transition: ease-in box-shadow 300ms;
@@ -425,6 +457,9 @@ input[type='checkbox'] {
   text-decoration: underline;
 }
 
+.main form p {
+  color: #fff;
+}
 form p {
   font-size: 1.25rem;
 }
@@ -470,8 +505,9 @@ p.pswd-reset-success-msg {
 }
 @media screen and (max-width:590px) {
   .home-page .todo-image-container {
-    top: 15rem;
+    top: 21rem;
   }
+  
 }
 
 
@@ -480,13 +516,7 @@ p.pswd-reset-success-msg {
     margin: 2rem auto 0;
     padding: 0 1rem;
   }
-  .home-page .todo-image-container {
-    top: 15rem;
-    /* height: 20rem;
-    width: 20rem; */
-    /* margin-top: 5rem; */
-  } 
-  
+ 
   .welcome-heading {
     font-size: 1.5rem;
     top: 0;
@@ -538,4 +568,12 @@ p.pswd-reset-success-msg {
     text-overflow: hidden;
   }
   
+}
+
+@media screen and (max-width:321px) {
+  .home-page .todo-image-container {
+    height: 20rem;
+    width: 18rem;
+    right: 1rem;
+  } 
 }
