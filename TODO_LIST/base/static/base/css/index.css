@@ -120,14 +120,23 @@ p {
 .todo-image-container::before {
   content: '';
   position: absolute;
-  background: linear-gradient(#00ccff, #800080);
+  background: linear-gradient(#00ccff, #fd33c0);
   width: 50%;
   height: 140%;
-  animation: rotate 10s infinite linear;
+  animation: rotate 5s infinite linear;
   z-index: 3;
 }
 
-
+@keyframes rotate {
+  from {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 .todo-image-container::after {
   content: '';
@@ -136,26 +145,6 @@ p {
   inset: 3px;
   border-radius: 0.7rem;
   z-index: 4;
-}
-
-
-@keyframes rotate {
-  0% {
-    background: linear-gradient(#00ccff, #d500f9);
-    transform: rotate(0deg);
-  }
-  35% {
-    background: linear-gradient(#34ca06, #510074);
-    transform: rotate(120deg);
-  }
-  70% {
-    background: linear-gradient(#d81c90, #8ea401);
-    transform: rotate(240deg);
-  }
-  100% {
-    background: linear-gradient(#ba5d00, #6495ed);
-    transform: rotate(360deg);
-  }
 }
 
 
@@ -254,16 +243,16 @@ p {
   box-shadow: 0 0 50px #18bbca;
 }
 .main .form-container:hover {
-  animation: shadow-color 2s infinite linear alternate;
+  animation: shadow-animate 2s infinite linear alternate;
 }
-@keyframes shadow-color {
+@keyframes shadow-animate {
   0% {
     box-shadow: 0 0 50px 10px #baba1d;
   }
   33% {
     box-shadow: 0 0 50px 10px #d14086;
-    }
-    66% {
+  }
+  66% {
     box-shadow: 0 0 50px 10px #4cca22;
   }
   100% {
@@ -329,19 +318,21 @@ p.non_field_error {
 }
 
 .main .input-field-wrapper label {
-  position: absolute;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  /* position: absolute; */
+  /* left: 0;
+  top: 0; */
+  /* transform: translate(1.7rem, 1.7rem); */
   color: #fff;
   pointer-events: none;
   transition: 0.5s;
+  /* background-color: #00bd00; */
 }
 
 
-.main .input-field-wrapper input:focus .main .input-field-wrapper label,
-.main .input-field-wrapper input:valid .main .input-field-wrapper label {
-  top: -1.7rem;
+.main .input-field-wrapper input:focus .input-field-wrapper label,
+.main .input-field-wrapper input:valid .input-field-wrapper label {
+  transform: translate(0, 0);
+  /* top: -1.7rem; */
 }
 
 .input-field-wrapper span {
