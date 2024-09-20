@@ -1,0 +1,8 @@
+myvenv
+
+.pyc
+_pycache__
+
+db.sqlite3
+TODO_LIST/migrations/
+__pycache__/
