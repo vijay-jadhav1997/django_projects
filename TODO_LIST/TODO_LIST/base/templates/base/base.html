@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'base/images/todo-logo1.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'base/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'base/css/header.css' %}">
+  {% block style %}
+  {% endblock style %}
+  <title>{% block title %}Todo App{% endblock title %}</title>
+</head>
+<body>
+  {% include "base/header.html" %}
+  {% block main %}{% endblock main %}
+</body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+<script type="text/javascript" src="{% static 'base/js/script.js' %}"></script>
+{% block script %}{% endblock script %}
+</html>

@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block main %}
+    
+  <h1>You have <em>{{count.count}}</em> incomplete task{{count|pluralize:"s"}}.</h1>
+  <div class="task_list-container">
+    {% for task in tasks %}
+      <div class="task-wrapper">
+        {% if task.complete %}
+          <div id="task-complete-title" class="task-title">
+            <div class="task-complte-icon">✔</div>
+            <i><s><a class="task-complete-title" href="{% url 'task_update' task.id %}">{{task.title}}</a></s></i>
+          </div>
+        {% else %}
+          <div  class="task-title">
+            <div class="task-incomplte-icon"></div>
+            <a href="{% url 'task_update' task.id %}">{{task.title|truncatewords:50}}</a>
+          </div>
+        {% endif %}
+        <div class="task-action-btns">
+          <a href="{% url 'task_update' task.id %}" class="task-action-link task-edit-btn"><img src="{% static 'base/images/Edit-icon.jpg' %}" alt=""></a>
+          <a href="{% url 'task_delete' task.id %}" class="task-action-link delete-btn"><img src="{% static 'base/images/delete.png' %}" alt=""></a>
+        </div>
+      </div>
+      {% empty %}
+      <p>You have no pending tasks! <a class="option-link" href="{% url 'task_create' %}">add your first task!</a></p>
+    {% endfor %}
+  </div>
+{% endblock main %}
