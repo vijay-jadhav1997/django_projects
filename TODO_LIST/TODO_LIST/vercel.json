@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "builds": [
     {
       "src": "TODO_LIST/wsgi.py",
@@ -7,7 +7,7 @@
       "config": {"maxLambdaSize": "15mb", "runtime": "python3.9"}
     },
     {
-      "src": "buil_files.sh",
+      "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {"distDir": "staticfiles_build"}
     }

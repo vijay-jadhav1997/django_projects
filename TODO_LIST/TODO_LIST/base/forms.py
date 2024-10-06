@@ -13,9 +13,9 @@ class UserSignupForm(UserCreationForm):
       'password1': 'Password',
       'password2': 'Password confirmation',
     }
-    widgets = {
-      'username' : forms.TextInput(attrs={'placeholder':'dharm_raj'}),
-      'password1' : forms.PasswordInput(attrs={'placeholder':'Indian@₹25'}),
-    }
+    # widgets = {
+    #   'username' : forms.TextInput(attrs={'placeholder':'dharm_raj'}),
+    #   'password1' : forms.PasswordInput(attrs={'placeholder':'Indian@₹25'}),
+    # }
 
 
